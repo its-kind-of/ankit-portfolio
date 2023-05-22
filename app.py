@@ -1,4 +1,11 @@
-from flask import Flask, render_template
+import importlib
+try:
+    importlib.import_module('flask')
+except ImportError:
+    import subprocess
+    subprocess.call(['pip', 'install', 'flask'])
+finally:
+    from flask import Flask, render_templat
 
 app = Flask(__name__)
 
